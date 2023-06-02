@@ -2,7 +2,18 @@
   "name": "@telecom/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start:calculator": "nx serve service-price-calculator",
+    "build:calculator": "nx build service-price-calculator",
+    "test:calculator": "nx test service-price-calculator",
+    "e2e:calculator": "nx e2e service-price-calculator-e2e",
+    "format:check": "nx format:check",
+    "format:fix": "nx format:write",
+    "lint:check": "nx affected:lint",
+    "lint:fix": "nx affected:lint --fix",
+    "code:check": "npm run format:check && npm run lint:check",
+    "code:fix": "npm run format:fix && npm run lint:fix"
+  },
   "private": true,
   "dependencies": {
     "@swc/helpers": "~0.5.0",
