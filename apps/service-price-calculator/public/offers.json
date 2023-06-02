@@ -1,0 +1,101 @@
+{
+  "2023": [
+    {
+      "id": "1",
+      "purchased": ["Internet"],
+      "price": 39
+    },
+    {
+      "id": "2",
+      "purchased": ["Television"],
+      "price": 49
+    },
+    {
+      "id": "3",
+      "purchased": ["Phone subscription"],
+      "price": 29
+    },
+    {
+      "id": "4",
+      "purchased": ["4K Decoder"],
+      "price": 29
+    },
+    {
+      "id": "5",
+      "purchased": ["Internet", "Television"],
+      "extra": ["4K Decoder"],
+      "price": 79
+    },
+    {
+      "id": "6",
+      "purchased": ["Internet", "Phone subscription"],
+      "price": 64
+    }
+  ],
+  "2024": [
+    {
+      "id": "1",
+      "purchased": ["Internet"],
+      "price": 49
+    },
+    {
+      "id": "2",
+      "purchased": ["Television"],
+      "price": 49
+    },
+    {
+      "id": "3",
+      "purchased": ["Phone subscription"],
+      "price": 29
+    },
+    {
+      "id": "4",
+      "purchased": ["4K Decoder"],
+      "price": 29
+    },
+    {
+      "id": "5",
+      "purchased": ["Internet", "Television"],
+      "extra": ["4K Decoder"],
+      "price": 89
+    },
+    {
+      "id": "6",
+      "purchased": ["Internet", "Phone subscription"],
+      "price": 64
+    }
+  ],
+  "2025": [
+    {
+      "id": "1",
+      "purchased": ["Internet"],
+      "price": 59
+    },
+    {
+      "id": "2",
+      "purchased": ["Television"],
+      "price": 59
+    },
+    {
+      "id": "3",
+      "purchased": ["Phone subscription"],
+      "price": 29
+    },
+    {
+      "id": "4",
+      "purchased": ["4K Decoder"],
+      "price": 29
+    },
+    {
+      "id": "5",
+      "purchased": ["Internet", "Television"],
+      "extra": ["4K Decoder"],
+      "price": 99
+    },
+    {
+      "id": "6",
+      "purchased": ["Internet", "Phone subscription"],
+      "price": 64
+    }
+  ]
+}
