@@ -1,0 +1,4 @@
+.dropdown-list {
+  overflow-y: auto;
+  max-height: 9rem;
+}
