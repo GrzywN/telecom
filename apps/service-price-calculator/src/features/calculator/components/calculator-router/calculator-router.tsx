@@ -11,7 +11,7 @@ export function CalculatorRouter(props: CalculatorRouterProps) {
 
   return (
     <Routes>
-      <Route element={firstStepComponent} />
+      <Route element={firstStepComponent} path="/" />
       <Route element={secondStepComponent} path={secondStepPath} />
     </Routes>
   );
