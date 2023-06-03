@@ -1,8 +1,8 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render } from '@testing-library/react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ReactQueryProvider } from '../../../../react-query';
 import { CalculatorProvider } from '../../context/calculator-context';
 
 import Form from './form';
@@ -42,8 +42,6 @@ const server = setupServer(
   })
 );
 
-const queryClient = new QueryClient();
-
 describe('Form', () => {
   beforeAll(() => server.listen());
 
@@ -51,7 +49,7 @@ describe('Form', () => {
 
   it('should render successfully', () => {
     const { baseElement } = render(
-      <QueryClientProvider client={queryClient}>
+      <ReactQueryProvider>
         <CalculatorProvider>
           <BrowserRouter>
             <Routes>
@@ -60,7 +58,7 @@ describe('Form', () => {
             </Routes>
           </BrowserRouter>
         </CalculatorProvider>
-      </QueryClientProvider>
+      </ReactQueryProvider>
     );
     expect(baseElement).toBeTruthy();
   });

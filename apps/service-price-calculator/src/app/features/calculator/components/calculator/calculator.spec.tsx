@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
+import { ReactQueryProvider } from '../../../../react-query';
 
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Calculator from './calculator';
 
 const server = setupServer(
@@ -40,17 +40,15 @@ const server = setupServer(
   })
 );
 
-const queryClient = new QueryClient();
-
 describe('Calculator', () => {
   beforeAll(() => server.listen());
 
   afterAll(() => server.close());
   it('should render successfully', () => {
     const { baseElement } = render(
-      <QueryClientProvider client={queryClient}>
+      <ReactQueryProvider>
         <Calculator />
-      </QueryClientProvider>
+      </ReactQueryProvider>
     );
     expect(baseElement).toBeTruthy();
   });
