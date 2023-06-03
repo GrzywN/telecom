@@ -1,17 +1,66 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { rest } from 'msw';
+import { setupServer } from 'msw/node';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { CalculatorProvider } from '../../context/calculator-context';
 
 import Form from './form';
 
+const server = setupServer(
+  rest.get('offers.json', (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json([
+        {
+          year: 2023,
+          offers: [
+            {
+              id: '1',
+              purchased: ['Internet'],
+              price: 39,
+            },
+            {
+              id: '2',
+              purchased: ['Television'],
+              price: 49,
+            },
+            {
+              id: '3',
+              purchased: ['Phone subscription'],
+              price: 29,
+            },
+            {
+              id: '4',
+              purchased: ['4K Decoder'],
+              price: 29,
+            },
+          ],
+        },
+      ])
+    );
+  })
+);
+
+const queryClient = new QueryClient();
+
 describe('Form', () => {
+  beforeAll(() => server.listen());
+
+  afterAll(() => server.close());
+
   it('should render successfully', () => {
     const { baseElement } = render(
-      <CalculatorProvider>
-        <BrowserRouter>
-          <Form />
-        </BrowserRouter>
-      </CalculatorProvider>
+      <QueryClientProvider client={queryClient}>
+        <CalculatorProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route element={<Form />} path="/" />
+              <Route element={null} path="/summary" />
+            </Routes>
+          </BrowserRouter>
+        </CalculatorProvider>
+      </QueryClientProvider>
     );
     expect(baseElement).toBeTruthy();
   });
