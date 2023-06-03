@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@telecom/calculator/core": ["libs/calculator/core/src/index.ts"],
+      "@telecom/calculator/fetch": ["libs/calculator/fetch/src/index.ts"],
+      "@telecom/calculator/utils": ["libs/calculator/utils/src/index.ts"],
       "@telecom/shared/ui": ["libs/shared/ui/src/index.ts"]
     }
   },

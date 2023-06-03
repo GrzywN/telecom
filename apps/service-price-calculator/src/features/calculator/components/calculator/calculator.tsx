@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchOffers, getServices, getYears } from '../../resources/offers';
+import { fetchOffers, getServices, getYears } from '@telecom/calculator/fetch';
 import { FormError } from '../form-error/form-error';
 import { Form } from '../form/form';
 import { TitleAndSubtitle } from '../title-and-subtitle/title-and-subtitle';

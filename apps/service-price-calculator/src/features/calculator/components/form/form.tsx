@@ -1,9 +1,9 @@
-import { Button, CheckboxDropdown, RadioDropdown } from '@telecom/shared/ui';
-import { useCallback, useState } from 'react';
 import {
   getServicesDropdownText,
   getYearDropdownText,
-} from '../../utils/dropdown-text';
+} from '@telecom/calculator/utils';
+import { Button, CheckboxDropdown, RadioDropdown } from '@telecom/shared/ui';
+import { useCallback, useState } from 'react';
 
 export interface FormProps {
   years?: string[];
