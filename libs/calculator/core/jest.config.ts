@@ -3,9 +3,8 @@ export default {
   displayName: 'calculator-core',
   preset: '../../../jest.preset.js',
   transform: {
-    '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nx/react/plugins/jest',
-    '^.+\\.[tj]sx?$': ['babel-jest', { presets: ['@nx/react/babel'] }],
+    '^.+\\.[tj]s$': ['ts-jest', { tsconfig: '<rootDir>/tsconfig.spec.json' }],
   },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  moduleFileExtensions: ['ts', 'js', 'html'],
   coverageDirectory: '../../../coverage/libs/calculator/core',
 };

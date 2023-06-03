@@ -3,13 +3,22 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/calculator/core/src",
   "projectType": "library",
-  "tags": [],
   "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/calculator/core",
+        "main": "libs/calculator/core/src/index.ts",
+        "tsConfig": "libs/calculator/core/tsconfig.lib.json",
+        "assets": ["libs/calculator/core/*.md"]
+      }
+    },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/calculator/core/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["libs/calculator/core/**/*.ts"]
       }
     },
     "test": {
@@ -26,5 +35,6 @@
         }
       }
     }
-  }
+  },
+  "tags": []
 }
