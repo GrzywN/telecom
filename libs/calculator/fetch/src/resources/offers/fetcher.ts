@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { Offers, parseOffers } from './schema-validator';
 
 export async function fetchOffers(): Promise<Offers> {

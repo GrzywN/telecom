@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 
-import CalculatorRouter from './calculator-router';
+import { CalculatorRouter } from './calculator-router';
 
 describe('CalculatorRouter', () => {
   it('should render successfully', () => {

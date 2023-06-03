@@ -2,10 +2,10 @@ import { render } from '@testing-library/react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import { ReactQueryProvider } from '../../../../react-query';
 import { CalculatorProvider } from '../../context/calculator-context';
-
-import Form from './form';
+import { Form } from './form';
 
 const server = setupServer(
   rest.get('offers.json', (req, res, ctx) => {

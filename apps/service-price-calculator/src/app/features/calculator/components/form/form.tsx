@@ -5,6 +5,7 @@ import {
 import { Button, CheckboxDropdown, RadioDropdown } from '@telecom/shared/ui';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import { useCalculator } from '../../context/calculator-context/calculator-context';
 import { SUMMARY_PATH } from '../../routes/paths';
 

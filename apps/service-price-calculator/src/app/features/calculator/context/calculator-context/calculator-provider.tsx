@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchOffers, getServices, getYears } from '@telecom/calculator/fetch';
 import { useEffect, useState } from 'react';
+
 import { CalculatorContext } from './calculator-context';
 
 export interface CalculatorProviderProps {

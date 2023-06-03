@@ -1,11 +1,10 @@
-import { ChangeEvent } from 'react';
 import styles from './checkbox-dropdown.module.css';
 
 export interface CheckboxDropdownProps {
   text: string;
   inputName: string;
   options?: string[];
-  optionChangeHandler: (event: ChangeEvent, option: string) => void;
+  optionChangeHandler: (event: React.ChangeEvent, option: string) => void;
   isLoading: boolean;
 }
 

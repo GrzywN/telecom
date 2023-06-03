@@ -1,7 +1,7 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nx", "@tanstack/query"],
+  "plugins": ["@nx", "@tanstack/query", "ordered-imports"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -15,6 +15,23 @@
               {
                 "sourceTag": "*",
                 "onlyDependOnLibsWithTags": ["*"]
+              }
+            ]
+          }
+        ],
+        "ordered-imports/ordered-imports": [
+          "error",
+          {
+            "group-ordering": [
+              {
+                "name": "relative dir",
+                "match": "^[.].*",
+                "order": 2
+              },
+              {
+                "name": "node_modules",
+                "match": ".*",
+                "order": 1
               }
             ]
           }

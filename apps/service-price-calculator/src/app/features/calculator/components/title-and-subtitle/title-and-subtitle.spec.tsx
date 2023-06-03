@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import TitleAndSubtitle from './title-and-subtitle';
+import { TitleAndSubtitle } from './title-and-subtitle';
 
 describe('TitleAndSubtitle', () => {
   it('should render successfully', () => {

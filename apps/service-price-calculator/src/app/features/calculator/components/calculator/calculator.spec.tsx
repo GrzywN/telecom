@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
-import { ReactQueryProvider } from '../../../../react-query';
 
-import Calculator from './calculator';
+import { ReactQueryProvider } from '../../../../react-query';
+import { Calculator } from './calculator';
 
 const server = setupServer(
   rest.get('offers.json', (req, res, ctx) => {
