@@ -1,7 +1,7 @@
-import { useQuery } from '@tanstack/react-query';
-import { fetchOffers, getServices, getYears } from '@telecom/calculator/fetch';
+import { getServices, getYears } from '@telecom/calculator/fetch';
 import { useEffect, useState } from 'react';
 
+import { useOffersQuery } from '../../hooks/queries/use-offers-query/use-offers-query';
 import { CalculatorContext } from './calculator-context';
 
 export interface CalculatorProviderProps {
@@ -11,12 +11,7 @@ export interface CalculatorProviderProps {
 export function CalculatorProvider(props: CalculatorProviderProps) {
   const { children } = props;
 
-  const {
-    isError,
-    isLoading,
-    data: offersData,
-    isSuccess,
-  } = useQuery(['offers'], fetchOffers);
+  const { isError, isLoading, data: offersData, isSuccess } = useOffersQuery();
 
   const [availableYears, setAvailableYears] = useState<string[]>([]);
   const [availableServices, setAvailableServices] = useState<string[]>([]);
