@@ -3,25 +3,29 @@ import {
   getYearDropdownText,
 } from '@telecom/calculator/utils';
 import { Button, CheckboxDropdown, RadioDropdown } from '@telecom/shared/ui';
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useCalculator } from '../../context/calculator-context/calculator-context';
+import { SUMMARY_PATH } from '../../routes/paths';
 
-export interface FormProps {
-  years?: string[];
-  services?: string[];
-  isLoading: boolean;
-}
+export function Form() {
+  const {
+    availableYears,
+    availableServices,
+    isLoading,
+    selectedYear,
+    setSelectedYear,
+    selectedServices,
+    setSelectedServices,
+  } = useCalculator();
 
-export function Form(props: FormProps) {
-  const { years, services, isLoading } = props;
-
-  const [selectedYear, setSelectedYear] = useState('');
-  const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const navigate = useNavigate();
 
   const handleYearChange = useCallback(
     (_: React.ChangeEvent, year: string): void => {
       setSelectedYear(year);
     },
-    []
+    [setSelectedYear]
   );
 
   const handleServiceChange = useCallback(
@@ -38,27 +42,32 @@ export function Form(props: FormProps) {
 
       setSelectedServices(newSelectedServices);
     },
-    [selectedServices]
+    [selectedServices, setSelectedServices]
+  );
+
+  const handleSubmit = useCallback(
+    (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+
+      navigate(SUMMARY_PATH);
+    },
+    [navigate]
   );
 
   return (
-    <form
-      onSubmit={(event) => {
-        event.preventDefault();
-      }}
-    >
+    <form onSubmit={handleSubmit}>
       <RadioDropdown
         text={getYearDropdownText(selectedYear)}
         inputName="year"
         isLoading={isLoading}
-        options={years}
+        options={availableYears}
         optionChangeHandler={handleYearChange}
       />
       <CheckboxDropdown
         text={getServicesDropdownText(selectedServices)}
         inputName="service"
         isLoading={isLoading}
-        options={services}
+        options={availableServices}
         optionChangeHandler={handleServiceChange}
       />
       <Button isLoading={isLoading}>Get the best bank for your buck</Button>

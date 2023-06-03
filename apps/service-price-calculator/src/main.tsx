@@ -1,6 +1,6 @@
+import '@picocss/pico';
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
-import '@picocss/pico';
 
 import App from './app/app';
 
