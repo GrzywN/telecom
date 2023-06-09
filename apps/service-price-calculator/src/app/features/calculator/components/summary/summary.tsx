@@ -9,7 +9,7 @@ export function Summary() {
       <div>
         And services:
         <ul>
-          {selectedServices.map((service) => (
+          {Array.from(selectedServices.values()).map((service) => (
             <li key={service}>{service}</li>
           ))}
         </ul>

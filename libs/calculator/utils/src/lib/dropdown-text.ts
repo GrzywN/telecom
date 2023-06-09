@@ -1,15 +1,15 @@
-export const getYearDropdownText = (selectedYear: string) =>
-  selectedYear || 'Year';
+export const getYearDropdownText = (selectedYear: string) => selectedYear || 'Year';
 
-export const getServicesDropdownText = (selectedServices: string[]) => {
+export const getServicesDropdownText = (selectedServices: Map<number, string>) => {
   const howManyWordsToDisplay = 3;
-  const words = selectedServices.length;
+  const howManySelectedServices = selectedServices.size;
 
-  if (words > howManyWordsToDisplay) {
-    const firstWords = selectedServices.slice(0, 3);
+  if (howManySelectedServices > howManyWordsToDisplay) {
+    const firstWords = Array.from(selectedServices.values()).slice(0, 3);
 
     return firstWords.join(', ') + ' and more';
   }
 
-  return selectedServices.join(', ') || 'Services';
+  const words = Array.from(selectedServices.values());
+  return words.join(', ') || 'Services';
 };

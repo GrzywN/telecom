@@ -20,12 +20,7 @@ export function CheckboxDropdown(props: CheckboxDropdownProps) {
         {options?.map((option) => (
           <li key={option}>
             <label>
-              <input
-                type="checkbox"
-                name={inputName}
-                value={option}
-                onChange={(e) => optionChangeHandler(e, option)}
-              />
+              <input type="checkbox" name={inputName} value={option} onChange={(e) => optionChangeHandler(e, option)} />
               {option}
             </label>
           </li>

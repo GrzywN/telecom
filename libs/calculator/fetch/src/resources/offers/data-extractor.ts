@@ -7,17 +7,16 @@ export function getYears(data: Offers): string[] {
   return sortedOffers;
 }
 
-export function getServices(data: Offers): number[] {
-  const services = new Set<number>();
+export function getServices(data: Offers): Map<number, string> {
+  const services = new Map<number, string>();
 
   for (const year in data.years) {
     for (const product of data.years[year].products) {
-      services.add(product.productId);
+      const { productId, name } = product;
+
+      services.set(productId, name);
     }
   }
 
-  const sortedServices = Array.from(services);
-  sortedServices.sort();
-
-  return sortedServices;
+  return services;
 }
