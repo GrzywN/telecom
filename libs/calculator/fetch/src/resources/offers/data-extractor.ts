@@ -1,26 +1,18 @@
 import { Offers } from './schema-validator';
 
 export function getYears(data: Offers): string[] {
-  const sortedOffers = data.map((yearlyData) => String(yearlyData.year));
+  const sortedOffers = Object.keys(data.years);
   sortedOffers.sort();
 
   return sortedOffers;
 }
 
-export function getServices(data: Offers): string[] {
-  const services = new Set<string>();
+export function getServices(data: Offers): number[] {
+  const services = new Set<number>();
 
-  for (const yearlyData of data) {
-    for (const offer of yearlyData.offers) {
-      for (const product of offer.purchased) {
-        services.add(product);
-      }
-
-      if (offer.extra) {
-        for (const product of offer.extra) {
-          services.add(product);
-        }
-      }
+  for (const year in data.years) {
+    for (const product of data.years[year].products) {
+      services.add(product.productId);
     }
   }
 
