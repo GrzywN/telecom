@@ -1,1 +1,1 @@
-export * from './lib/calculator-core';
+export * from './features/best-deal';
