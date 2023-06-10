@@ -1,20 +1,22 @@
+import { Suspense, lazy } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import { CalculatorProvider } from '../../context/calculator-context';
 import { useCalculator } from '../../context/calculator-context/calculator-context';
 import { SUMMARY_PATH } from '../../routes/paths';
 import { CalculatorRouter } from '../calculator-router/calculator-router';
-import { FormError } from '../form-error/form-error';
-import { Form } from '../form/form';
-import { SummaryError } from '../summary-error/summary-error';
-import { Summary } from '../summary/summary';
 import { TitleAndSubtitle } from '../title-and-subtitle/title-and-subtitle';
+
+const Form = lazy(() => import('../form/form'));
+const FormError = lazy(() => import('../form-error/form-error'));
+const Summary = lazy(() => import('../summary/summary'));
+const SummaryError = lazy(() => import('../summary-error/summary-error'));
 
 export function Calculator() {
   const { isError } = useCalculator();
 
-  const firstStep = isError ? <FormError /> : <Form />;
-  const secondStep = isError ? <SummaryError /> : <Summary />;
+  const firstStep = <Suspense>{isError ? <FormError /> : <Form />}</Suspense>;
+  const secondStep = <Suspense>{isError ? <SummaryError /> : <Summary />}</Suspense>;
 
   return (
     <section>
