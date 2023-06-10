@@ -2,23 +2,23 @@ import { createContext, useContext } from 'react';
 
 export interface CalculatorContextValue {
   availableYears: string[];
-  availableServices: Map<number, string>;
+  availableServices: { [id: number]: string };
   isLoading: boolean;
   isError: boolean;
   selectedYear: string;
   setSelectedYear: React.Dispatch<React.SetStateAction<string>>;
-  selectedServices: Map<number, string>;
-  setSelectedServices: React.Dispatch<React.SetStateAction<Map<number, string>>>;
+  selectedServices: { [id: number]: string };
+  setSelectedServices: React.Dispatch<React.SetStateAction<{ [id: number]: string }>>;
 }
 
 export const CalculatorContext = createContext<CalculatorContextValue>({
   availableYears: [],
-  availableServices: new Map(),
+  availableServices: {},
   isLoading: true,
   isError: false,
   selectedYear: '',
   setSelectedYear: () => null,
-  selectedServices: new Map(),
+  selectedServices: {},
   setSelectedServices: () => null,
 });
 

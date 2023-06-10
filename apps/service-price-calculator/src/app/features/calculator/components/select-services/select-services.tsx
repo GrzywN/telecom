@@ -7,48 +7,41 @@ export function SelectServices() {
 
   const getServicesDropdownText = () => {
     const howManyWordsToDisplay = 3;
-    const howManySelectedServices = selectedServices.size;
+    const howManySelectedServices = Object.keys(selectedServices).length;
 
     if (howManySelectedServices > howManyWordsToDisplay) {
-      const firstWords = Array.from(selectedServices.values()).slice(0, howManyWordsToDisplay);
+      const firstWords = Object.values(selectedServices).slice(0, howManyWordsToDisplay);
 
       return `${firstWords.join(', ')} and more`;
     }
 
-    const words = Array.from(selectedServices.values());
+    const words = Object.values(selectedServices);
     return words.join(', ') || 'Services';
   };
 
   const getServiceOptions = (): string[] => {
-    return Array.from(availableServices.values());
+    return Object.values(availableServices);
   };
 
-  const handleServiceChange = (_: React.ChangeEvent, serviceName: string): void => {
-    let serviceId = -1;
+  const handleServiceChange = (event: React.ChangeEvent<HTMLInputElement>, serviceName: string): void => {
+    const serviceId = Object.entries(availableServices).find(([id, name]) => name === serviceName)?.[0];
 
-    for (const [id, name] of availableServices.entries()) {
-      if (name === serviceName) {
-        serviceId = id;
-        break;
-      }
-    }
-
-    if (serviceId === -1) {
+    if (serviceId === undefined) {
       throw new Error('Form: serviceId is not found.');
     }
 
-    const shouldServiceBeRemoved = Array.from(selectedServices.keys()).includes(serviceId);
-    let newSelectedServices: Map<number, string> = new Map();
+    const shouldServiceBeRemoved = Object.keys(selectedServices).includes(serviceId);
+    let newSelectedServices: { [id: number]: string } = {};
 
     if (shouldServiceBeRemoved) {
-      for (const [id, name] of selectedServices.entries()) {
+      Object.entries(selectedServices).forEach(([id, name]) => {
         if (id !== serviceId) {
-          newSelectedServices.set(id, name);
+          newSelectedServices[id] = name;
         }
-      }
+      });
     } else {
-      newSelectedServices = new Map(selectedServices);
-      newSelectedServices.set(serviceId, availableServices.get(serviceId) as string);
+      newSelectedServices = { ...selectedServices };
+      newSelectedServices[serviceId] = availableServices[serviceId];
     }
 
     setSelectedServices(newSelectedServices);
@@ -61,6 +54,7 @@ export function SelectServices() {
       text={getServicesDropdownText()}
       options={getServiceOptions()}
       optionChangeHandler={handleServiceChange}
+      checkedOptions={Object.values(selectedServices)}
     />
   );
 }

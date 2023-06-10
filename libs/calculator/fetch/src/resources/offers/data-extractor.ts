@@ -7,14 +7,14 @@ export function getYears(data: Offers): string[] {
   return sortedOffers;
 }
 
-export function getServices(data: Offers): Map<number, string> {
-  const services = new Map<number, string>();
+export function getServices(data: Offers): { [id: number]: string } {
+  const services: { [id: number]: string } = {};
 
   for (const year in data.years) {
     for (const product of data.years[year].products) {
       const { productId, name } = product;
 
-      services.set(productId, name);
+      services[productId] = name;
     }
   }
 

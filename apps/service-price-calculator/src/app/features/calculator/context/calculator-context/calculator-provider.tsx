@@ -14,10 +14,10 @@ export function CalculatorProvider(props: CalculatorProviderProps) {
   const { isError, isLoading, data: offersData, isSuccess } = useOffersQuery();
 
   const [availableYears, setAvailableYears] = useState<string[]>([]);
-  const [availableServices, setAvailableServices] = useState<Map<number, string>>(new Map());
+  const [availableServices, setAvailableServices] = useState<{ [id: number]: string }>({});
 
   const [selectedYear, setSelectedYear] = useState('');
-  const [selectedServices, setSelectedServices] = useState<Map<number, string>>(new Map());
+  const [selectedServices, setSelectedServices] = useState<{ [id: number]: string }>({});
 
   useEffect(() => {
     if (isSuccess && offersData) {
