@@ -1,3 +1,5 @@
+import { SelectedServicesData } from '@telecom/calculator/types';
+
 import {
   calculatePriceWithoutBundles,
   filterBundlesWithSelectedProducts,
@@ -6,7 +8,6 @@ import {
   prepareSortedOutput,
   validateUserDataMightThrow,
 } from './best-deal';
-import { SelectedServicesData } from './types/input';
 import {
   availableOffers,
   invalidProducts,

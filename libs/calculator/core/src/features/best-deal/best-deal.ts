@@ -53,9 +53,9 @@ export function calculatePriceWithoutBundles(selectedProducts: number[], product
 
 export function filterBundlesWithSelectedProducts(selectedProducts: number[], bundles: BundleInfo[]): BundleInfo[] {
   const bundlesWithServices = bundles.filter((bundle) => {
-    const { productIds } = bundle;
+    const { productIds, extras } = bundle;
 
-    return selectedProducts.every((selectedProduct) => productIds.includes(selectedProduct));
+    return selectedProducts.every((selectedProduct) => productIds.includes(selectedProduct) || extras?.includes(selectedProduct));
   });
 
   return bundlesWithServices;
