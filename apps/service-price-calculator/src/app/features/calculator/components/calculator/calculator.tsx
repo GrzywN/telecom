@@ -19,16 +19,12 @@ export function Calculator() {
   const secondStep = <Suspense>{isError ? <SummaryError /> : <Summary />}</Suspense>;
 
   return (
-    <section>
+    <section className="container-fluid">
       <article>
         <TitleAndSubtitle />
         <CalculatorProvider>
           <BrowserRouter>
-            <CalculatorRouter
-              firstStepComponent={firstStep}
-              secondStepComponent={secondStep}
-              secondStepPath={SUMMARY_PATH}
-            />
+            <CalculatorRouter firstStepComponent={firstStep} secondStepComponent={secondStep} secondStepPath={SUMMARY_PATH} />
           </BrowserRouter>
         </CalculatorProvider>
       </article>

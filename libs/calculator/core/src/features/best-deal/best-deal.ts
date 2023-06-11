@@ -85,6 +85,7 @@ export function prepareSortedOutput(selectedProducts: number[], originalPrice: n
       priceDiff,
       hasExtras,
       extras: bundle.extras || [],
+      originalPrice,
     });
   }
 

@@ -30,6 +30,7 @@ export interface BundleOutputInfo extends BundleInfo {
   priceDiff: number;
   hasExtras: boolean;
   extras: number[];
+  originalPrice: number;
 }
 
 export interface OutputOffers {

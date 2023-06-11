@@ -3,3 +3,7 @@
   left: 2rem;
   top: 2rem;
 }
+
+.table-button {
+  width: max-content;
+}

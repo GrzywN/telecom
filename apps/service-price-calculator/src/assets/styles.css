@@ -19,9 +19,20 @@ body {
   align-items: center;
   justify-content: center;
 
-  padding: 1rem;
+  padding: 6rem 1rem;
+}
+
+main {
+  max-width: calc(100vw - 2rem);
 }
 
 .text-center {
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 }

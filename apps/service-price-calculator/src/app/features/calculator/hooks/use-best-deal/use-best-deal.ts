@@ -1,5 +1,5 @@
-import { Offers, OutputOffers, findBestDealMightThrow } from '@telecom/calculator/core';
-import { SelectedServices, SelectedServicesData } from '@telecom/calculator/types';
+import { findBestDealMightThrow } from '@telecom/calculator/core';
+import { Offers, OutputOffers, SelectedServices, SelectedServicesData } from '@telecom/calculator/types';
 import { useEffect, useState } from 'react';
 
 export function useBestDeal(year: string, selectedServices: SelectedServices, offersData: Offers | null) {
