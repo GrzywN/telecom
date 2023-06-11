@@ -7,13 +7,13 @@ export async function fetchOffers(): Promise<Offers> {
   const offers = response.data;
 
   // Testing loading state
-  const parsedOffers = await new Promise<Offers>((resolve) => {
-    setTimeout(() => {
-      resolve(parseOffers(offers));
-    }, 2000);
-  });
+  // const parsedOffers = await new Promise<Offers>((resolve) => {
+  //   setTimeout(() => {
+  //     resolve(parseOffers(offers));
+  //   }, 500);
+  // });
 
-  // const parsedOffers = parseOffers(offers);
+  const parsedOffers = parseOffers(offers);
 
   return parsedOffers;
 }
