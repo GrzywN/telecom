@@ -19,6 +19,7 @@
       "@telecom/calculator/fetch": ["libs/calculator/fetch/src/index.ts"],
       "@telecom/calculator/types": ["libs/calculator/types/src/index.ts"],
       "@telecom/calculator/utils": ["libs/calculator/utils/src/index.ts"],
+      "@telecom/shared/testing": ["libs/shared/testing/src/index.ts"],
       "@telecom/shared/ui": ["libs/shared/ui/src/index.ts"]
     }
   },
