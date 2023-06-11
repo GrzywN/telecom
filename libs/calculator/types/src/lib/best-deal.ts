@@ -25,3 +25,17 @@ export interface SelectedServicesData {
   year: string;
   products: number[];
 }
+
+export interface BundleOutputInfo extends BundleInfo {
+  priceDiff: number;
+  hasExtras: boolean;
+  extras: number[];
+}
+
+export interface OutputOffers {
+  initialOffer: {
+    productIds: number[];
+    price: number;
+  };
+  bundleOffers: BundleOutputInfo[];
+}

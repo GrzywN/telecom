@@ -1,4 +1,4 @@
-import type { BundleOutputInfo } from '../types/output';
+import type { BundleOutputInfo } from '@telecom/calculator/types';
 
 export function outputSortingFn(a: BundleOutputInfo, b: BundleOutputInfo): number {
   const bothHaveExtras = a.hasExtras && b.hasExtras;

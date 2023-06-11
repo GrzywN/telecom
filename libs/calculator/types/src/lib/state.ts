@@ -5,8 +5,3 @@ export interface AvailableServices {
 export interface SelectedServices {
   [id: number]: string;
 }
-
-export interface SelectedServicesData {
-  year: string;
-  products: number[];
-}

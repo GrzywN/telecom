@@ -1,4 +1,4 @@
-import type { Offers } from '../../types/input';
+import { Offers } from '@telecom/calculator/types';
 
 export const availableOffers: Offers = Object.freeze({
   years: {

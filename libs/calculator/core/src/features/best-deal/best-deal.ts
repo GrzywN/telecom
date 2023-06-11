@@ -1,5 +1,5 @@
-import type { BundleInfo, Offers, ProductInfo, SelectedServicesData, YearData } from './types/input';
-import type { OutputOffers } from './types/output';
+import { BundleInfo, Offers, OutputOffers, ProductInfo, SelectedServicesData, YearData } from '@telecom/calculator/types';
+
 import { outputSortingFn } from './utils/bundle-sorting';
 import { VALIDATOR_PRODUCT_ID_DOES_NOT_EXIST, VALIDATOR_YEAR_DOES_NOT_EXIST } from './utils/error-messages';
 
