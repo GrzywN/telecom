@@ -11,7 +11,6 @@
     "start:calculator": "nx serve service-price-calculator",
     "build:calculator": "nx build service-price-calculator",
     "test:calculator": "nx test service-price-calculator",
-    "e2e:calculator": "nx e2e service-price-calculator-e2e",
     "format:check": "nx format:check",
     "format:fix": "nx format:write",
     "lint:check": "nx affected:lint",
