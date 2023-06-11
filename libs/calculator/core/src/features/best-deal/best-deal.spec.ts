@@ -3,8 +3,8 @@ import {
   filterBundlesWithSelectedProducts,
   filterWorthyBundles,
   getOffersForYear,
+  prepareSortedOutput,
   validateUserDataMightThrow,
-  prepareSortedOutput
 } from './best-deal';
 import { SelectedServicesData } from './types/input';
 import {
@@ -12,8 +12,6 @@ import {
   invalidProducts,
   invalidYear,
   notWorthyBundle,
-  theCheapestBundleId,
-  theMostExpensiveBundleId,
   validOneProductOtherInvalid,
   validProducts,
   validYear,

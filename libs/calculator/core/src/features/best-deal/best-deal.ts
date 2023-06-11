@@ -3,7 +3,7 @@ import type { OutputOffers } from './types/output';
 import { outputSortingFn } from './utils/bundle-sorting';
 import { VALIDATOR_PRODUCT_ID_DOES_NOT_EXIST, VALIDATOR_YEAR_DOES_NOT_EXIST } from './utils/error-messages';
 
-export function findBestDealMightThrow(selectedServicesData: SelectedServicesData, availableOffers: Offers) {
+export function findBestDealMightThrow(selectedServicesData: SelectedServicesData, availableOffers: Offers): OutputOffers {
   validateUserDataMightThrow(selectedServicesData, availableOffers);
 
   const { year, products: selectedProducts } = selectedServicesData;

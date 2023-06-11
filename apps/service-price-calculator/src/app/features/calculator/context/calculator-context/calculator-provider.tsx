@@ -1,4 +1,5 @@
 import { getServices, getYears } from '@telecom/calculator/fetch';
+import { AvailableServices, SelectedServices } from '@telecom/calculator/types';
 import { useEffect, useState } from 'react';
 
 import { useOffersQuery } from '../../hooks/queries/use-offers-query/use-offers-query';
@@ -14,10 +15,10 @@ export function CalculatorProvider(props: CalculatorProviderProps) {
   const { isError, isLoading, data: offersData, isSuccess } = useOffersQuery();
 
   const [availableYears, setAvailableYears] = useState<string[]>([]);
-  const [availableServices, setAvailableServices] = useState<{ [id: number]: string }>({});
+  const [availableServices, setAvailableServices] = useState<AvailableServices>({});
 
   const [selectedYear, setSelectedYear] = useState('');
-  const [selectedServices, setSelectedServices] = useState<{ [id: number]: string }>({});
+  const [selectedServices, setSelectedServices] = useState<SelectedServices>({});
 
   useEffect(() => {
     if (isSuccess && offersData) {
@@ -32,6 +33,7 @@ export function CalculatorProvider(props: CalculatorProviderProps) {
   return (
     <CalculatorContext.Provider
       value={{
+        offersData: offersData || null,
         availableYears,
         availableServices,
         isError,

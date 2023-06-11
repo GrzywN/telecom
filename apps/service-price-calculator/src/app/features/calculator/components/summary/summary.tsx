@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom';
 import { useLocalStorage } from 'usehooks-ts';
 
 import { useCalculator } from '../../context/calculator-context';
+import { useBestDeal } from '../../hooks/use-best-deal/use-best-deal';
+import SummaryError from '../summary-error/summary-error';
 import styles from './summary.module.css';
 
 export function Summary() {
-  const { selectedYear, setSelectedYear, selectedServices, setSelectedServices } = useCalculator();
+  const { offersData, selectedYear, setSelectedYear, selectedServices, setSelectedServices } = useCalculator();
   const [savedSelectedYear] = useLocalStorage('selectedYear', '');
   const [savedSelectedServices] = useLocalStorage('selectedServices', {});
+  const { bestDeal, isLoading, error } = useBestDeal(selectedYear, selectedServices, offersData);
 
   useEffect(() => {
     if (!selectedYear || !selectedServices) {
@@ -21,8 +24,14 @@ export function Summary() {
     }
   });
 
+  console.log(bestDeal);
+
+  if (error) {
+    return <SummaryError />;
+  }
+
   return (
-    <div>
+    <div aria-busy={isLoading}>
       <Link to="/" className={styles['go-back-button']}>
         ← Go Back
       </Link>
