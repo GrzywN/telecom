@@ -4,7 +4,7 @@ export interface RadioDropdownProps {
   text: string;
   inputName: string;
   options?: string[];
-  optionChangeHandler: (event: React.ChangeEvent, option: string) => void;
+  optionChangeHandler: (event: React.ChangeEvent<HTMLInputElement>, option: string) => void;
   isLoading: boolean;
 }
 
@@ -19,12 +19,7 @@ export function RadioDropdown(props: RadioDropdownProps) {
       <ul className={styles['dropdown-list']} role="listbox">
         {options?.map((option) => (
           <li key={option}>
-            <input
-              type="radio"
-              name={inputName}
-              value={option}
-              onChange={(e) => optionChangeHandler(e, option)}
-            />
+            <input type="radio" name={inputName} value={option} onChange={(e) => optionChangeHandler(e, option)} />
             {option}
           </li>
         ))}

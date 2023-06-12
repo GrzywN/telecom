@@ -36,12 +36,12 @@ export function SelectServices() {
     if (shouldServiceBeRemoved) {
       Object.entries(selectedServices).forEach(([id, name]) => {
         if (id !== serviceId) {
-          newSelectedServices[id] = name;
+          newSelectedServices[Number(serviceId)] = name;
         }
       });
     } else {
       newSelectedServices = { ...selectedServices };
-      newSelectedServices[serviceId] = availableServices[serviceId];
+      newSelectedServices[Number(serviceId)] = availableServices[Number(serviceId)];
     }
 
     setSelectedServices(newSelectedServices);

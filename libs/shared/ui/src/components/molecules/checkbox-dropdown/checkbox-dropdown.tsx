@@ -7,7 +7,7 @@ export interface CheckboxDropdownProps {
   inputName: string;
   options?: string[];
   checkedOptions?: string[];
-  optionChangeHandler: (event: React.ChangeEvent, option: string) => void;
+  optionChangeHandler: (event: React.ChangeEvent<HTMLInputElement>, option: string) => void;
   isLoading: boolean;
 }
 

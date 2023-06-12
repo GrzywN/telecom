@@ -19,9 +19,9 @@ export function SelectYear() {
     <RadioDropdown
       text={getYearDropdownText(selectedYear)}
       inputName="year"
-      isLoading={isLoading}
       options={availableYears}
       optionChangeHandler={handleYearChange}
+      isLoading={isLoading}
     />
   );
 }

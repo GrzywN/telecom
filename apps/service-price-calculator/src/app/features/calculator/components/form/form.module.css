@@ -1,0 +1,15 @@
+.field-with-validation {
+  position: relative;
+
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.validation-text {
+  position: absolute;
+  left: 0;
+  bottom: -0.25rem;
+
+  color: #f87171;
+  font-style: italic;
+}
